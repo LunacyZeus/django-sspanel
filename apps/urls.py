@@ -11,4 +11,5 @@ urlpatterns = [
     path("prom/", include("django_prometheus.urls")),
     path("api/", include("apps.api.urls", namespace="api")),
     path("sspanel/", include("apps.sspanel.urls", namespace="sspanel")),
+    path("mclient/", include("apps.mclient.urls", namespace="mclient")),
 ]

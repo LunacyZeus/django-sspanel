@@ -7,5 +7,5 @@ from . import views
 app_name = "mclient"
 
 urlpatterns = [
-    path('login', views.loginView, name='loginView'),
+    path('login/', views.loginView, name='loginView'),
 ]
