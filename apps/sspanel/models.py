@@ -2,6 +2,7 @@ import base64
 import datetime
 import random
 import time
+import jwt
 from uuid import uuid4
 from decimal import Decimal
 from urllib.parse import urlencode
@@ -184,6 +185,22 @@ class User(AbstractUser):
             if type(node) == VmessNode:
                 sub_links += node.get_vmess_link(self) + "\n"
         return sub_links
+
+    @property
+    def jwtoken(self):
+        return self._generate_jwt_token()
+
+    def _generate_jwt_token(self):
+        token = jwt.encode({
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),
+            'iat': datetime.datetime.utcnow(),
+            'data': {
+                'username': self.username
+            }
+        }, settings.SECRET_KEY, algorithm='HS256')
+
+        return token.decode('utf-8')
+
 
 
 class UserPropertyMixin:
