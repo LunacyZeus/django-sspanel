@@ -21,7 +21,9 @@ DEFAULT_TRAFFIC = 5 * GB
 START_PORT = 1024
 
 # 默认加密混淆协议
-DEFAULT_METHOD = "aes-256-cfb"
+DEFAULT_METHOD = "aes-128-ctr"
+DEFAULT_PROTOCOL = "auth_chain_a"
+DEFAULT_OBFS = "http_simple"
 
 # 签到流量设置
 MIN_CHECKIN_TRAFFIC = 10 * MB
@@ -35,8 +37,8 @@ ALIPAY_TRADE_INFO = "谜之屋的{}元充值码"
 ALIPAY_CALLBACK_URL = f"{HOST}/api/callback/alipay"
 
 # 网站title
-TITLE = "谜之屋"
-SUBTITLE = "秘密的小屋test"
+TITLE = "加速器测试"
+SUBTITLE = "加速器测试"
 
 # 用户邀请返利比例
 INVITE_PERCENT = 0.2

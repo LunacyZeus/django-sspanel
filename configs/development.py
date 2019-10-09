@@ -1,7 +1,6 @@
 import os
 
-from configs.default import *  # noqa
-from configs.default import DATABASES
+from configs.default import *
 
 # DEBUG设置
 DEBUG = True
