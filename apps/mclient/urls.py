@@ -8,5 +8,6 @@ app_name = "mclient"
 
 urlpatterns = [
     path('login/', csrf_exempt(views.loginView), name='loginView'),
+    path('reg/', csrf_exempt(views.regView), name='regView'),
     path('userinfo/', csrf_exempt(views.userInfoView), name='userInfoView'),
 ]
