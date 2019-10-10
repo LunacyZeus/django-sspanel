@@ -112,7 +112,7 @@ class User(AbstractUser):
         # 绑定uuid
         user.vmess_uuid = str(uuid4())
         user.save()
-        # 添加SSconfig
+        # 添加SSconfigk
         UserSSConfig.create_by_user_id(user.id)
         return user
 
