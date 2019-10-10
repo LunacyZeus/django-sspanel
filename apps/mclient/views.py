@@ -11,7 +11,8 @@ def loginView(request):#登录视图
 
     try:
         user = User.objects.get(username=username)
-        if user.password != password:
+        #if user.password != password:
+        if user.check_password(password):
             return JsonResponse({"status_code": 401, "message": "Wrong Password"})
     except ObjectDoesNotExist:
         return JsonResponse({"status_code": 401, "message": "User Does not exist"})
