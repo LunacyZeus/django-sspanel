@@ -35,8 +35,8 @@ def regView(request):#注册视图
         return JsonResponse({"status_code": 0, "message": "password empty"})
     if email == "":
         return JsonResponse({"status_code": 0, "message": "email empty"})
-    if invitecode == "":
-        return JsonResponse({"status_code": 0, "message": "invitecode empty"})
+    #if invitecode == "":
+    #    return JsonResponse({"status_code": 0, "message": "invitecode empty"})
 
     user = User.add_new_user({"username":username,"password1":password1,"email":email,"invitecode":invitecode,})
     if not user:
