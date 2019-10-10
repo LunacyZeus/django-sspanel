@@ -43,8 +43,8 @@ def auth_permission_required(perm):
                         return JsonResponse({"status_code": 401, "message": "User inactive or deleted"})
 
                     # Token登录的用户判断是否有权限
-                    if not user.has_perms(perms):
-                        return JsonResponse({"status_code": 403, "message": "PermissionDenied"})
+                    #if not user.has_perms(perms):
+                    #    return JsonResponse({"status_code": 403, "message": "PermissionDenied"})
                 else:
                     return JsonResponse({"status_code": 401, "message": "Not support auth type"})
 
