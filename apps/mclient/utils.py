@@ -36,8 +36,11 @@ def auth_permission_required(perm):
 
                     try:
                         user = UserModel.objects.get(username=username)
+                        request.user = user
                     except UserModel.DoesNotExist:
                         return JsonResponse({"status_code": 401, "message": "User Does not exist"})
+
+
 
                     if not user.is_active:
                         return JsonResponse({"status_code": 401, "message": "User inactive or deleted"})
