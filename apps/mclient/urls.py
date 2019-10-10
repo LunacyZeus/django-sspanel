@@ -7,5 +7,6 @@ from . import views
 app_name = "mclient"
 
 urlpatterns = [
-    path('login/', views.loginView, name='loginView'),
+    path('login/', csrf_exempt(views.loginView), name='loginView'),
+    path('userinfo/', csrf_exempt(views.userInfoView), name='userInfoView'),
 ]
