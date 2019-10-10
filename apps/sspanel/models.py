@@ -100,10 +100,12 @@ class User(AbstractUser):
         user = cls.objects.create_user(
             cleaned_data["username"], cleaned_data["email"], cleaned_data["password1"]
         )
+        inviter_id = 1
         if "invitecode" in cleaned_data:
-            code = InviteCode.objects.get(code=cleaned_data["invitecode"])
-            code.consume()
-            inviter_id = code.user_id
+            if cleaned_data["invitecode"]:
+                code = InviteCode.objects.get(code=cleaned_data["invitecode"])
+                code.consume()
+                inviter_id = code.user_id
         elif "ref" in cleaned_data:
             inviter_id = encoder.string2int(cleaned_data["ref"])
         # 绑定邀请人
